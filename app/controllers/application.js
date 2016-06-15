@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  cookName: 'chef'
+  chefs: ['Gordon Ramsay', 'Anthony Bourdain', 'Rachael Ray', 'Jamie Oliver', 'Guy Fieri']
 });
