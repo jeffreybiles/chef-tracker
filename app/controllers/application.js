@@ -1,5 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  chefs: ['Gordon Ramsay', 'Anthony Bourdain', 'Rachael Ray', 'Jamie Oliver', 'Guy Fieri']
+  chefs: [
+    {name: 'Gordon Ramsay', isHere: true},
+    {name: 'Anthony Bourdain', isHere: false},
+    {name: 'Rachael Ray', isHere: true},
+    {name: 'Jamie Oliver', isHere: false},
+    {name: 'Guy Fieri', isHere: true}
+  ]
 });
