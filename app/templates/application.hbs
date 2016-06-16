@@ -1,6 +1,10 @@
 <h1>Chef Tracker</h1>
 <ul>
   {{#each chefs as |chef|}}
-    <li>Delicious food, cooked by {{chef.name}}.  Cooking today: {{chef.isHere}}</li>
+    {{#if chef.isHere}}
+      <li>{{chef.name}}</li>
+    {{else}}
+      <li>{{chef.name}}</li>
+    {{/if}}
   {{/each}}
 </ul>
