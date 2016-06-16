@@ -1,0 +1,6 @@
+.is-here {
+  text-decoration: underline;
+}
+.not-here {
+  color: grey;
+}
