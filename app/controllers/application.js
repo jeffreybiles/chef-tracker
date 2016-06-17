@@ -7,5 +7,13 @@ export default Ember.Controller.extend({
     {name: 'Rachael Ray', isHere: true},
     {name: 'Jamie Oliver', isHere: false},
     {name: 'Guy Fieri', isHere: true}
-  ]
+  ],
+  actions: {
+    makePresent(chef){
+      Ember.set(chef, 'isHere', true)
+    },
+    makeAbsent(chef){
+      Ember.set(chef, 'isHere', false)
+    }
+  }
 });

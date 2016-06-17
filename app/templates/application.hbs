@@ -2,9 +2,15 @@
 <ul>
   {{#each chefs as |chef|}}
     {{#if chef.isHere}}
-      <li class="is-here">{{chef.name}}</li>
+      <li class="is-here">
+        {{chef.name}}
+        <button {{action 'makeAbsent' chef}}>Exit</button>
+      </li>
     {{else}}
-      <li class="not-here">{{chef.name}}</li>
+      <li class="not-here">
+        {{chef.name}}
+        <button {{action 'makePresent' chef}}>Enter</button>
+      </li>
     {{/if}}
   {{/each}}
 </ul>
