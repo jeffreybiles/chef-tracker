@@ -16,6 +16,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    firebase: {
+      apiKey: "AIzaSyAPFgZVPUfnjZ2l094OUzlYLBFSjROfBLI",
+      authDomain: "chef-tracker.firebaseapp.com",
+      databaseURL: "https://chef-tracker.firebaseio.com",
+      storageBucket: "chef-tracker.appspot.com"
     }
   };
 
