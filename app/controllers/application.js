@@ -9,6 +9,13 @@ export default Ember.Controller.extend({
     makeAbsent(chef){
       Ember.set(chef, 'isHere', false)
       chef.save()
+    },
+    saveNewItem(){
+      this.store.createRecord('chef', {
+        isAvailable: false,
+        name: this.get('newItem')
+      }).save()
+      this.set('newItem', '')
     }
   }
 });
