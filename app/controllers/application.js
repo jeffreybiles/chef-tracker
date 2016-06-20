@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  chefsHere: Ember.computed.filterBy('model', 'isHere'),
   actions: {
     makePresent(chef){
       Ember.set(chef, 'isHere', true)
