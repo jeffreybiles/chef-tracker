@@ -1,21 +1,28 @@
-<h1>Chef Tracker</h1>
-<p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
-<ul>
-  {{#each model as |chef|}}
-    {{#if chef.isHere}}
-      <li class="is-here">
-        {{chef.name}}
-        <button {{action 'makeAbsent' chef}}>Exit</button>
-      </li>
-    {{else}}
-      <li class="not-here">
-        {{chef.name}}
-        <button {{action 'makePresent' chef}}>Enter</button>
-        <button {{action 'fire' chef}}>Fire</button>
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-<hr>
-{{input value=newItem}}
-<button {{action 'saveNewItem'}}>Save</button>
+<div class="flex-container">
+  <div class="flex-item">
+    <h1>Chef Tracker</h1>
+    <p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
+    <ul>
+      {{#each model as |chef|}}
+        {{#if chef.isHere}}
+          <li class="is-here">
+            {{#link-to 'chefs.chef' chef}}{{chef.name}}{{/link-to}}
+            <button {{action 'makeAbsent' chef}}>Exit</button>
+          </li>
+        {{else}}
+          <li class="not-here">
+            {{chef.name}}
+            <button {{action 'makePresent' chef}}>Enter</button>
+            <button {{action 'fire' chef}}>Fire</button>
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+    <hr>
+    {{input value=newItem}}
+    <button {{action 'saveNewItem'}}>Save</button>
+  </div>
+  <div class="flex-item">
+    {{outlet}}
+  </div>
+</div>
