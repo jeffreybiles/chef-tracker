@@ -1,21 +1,5 @@
-<h1>Chef Tracker</h1>
-<p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
-<ul>
-  {{#each model as |chef|}}
-    {{#if chef.isHere}}
-      <li class="is-here">
-        {{chef.name}}
-        <button {{action 'makeAbsent' chef}}>Exit</button>
-      </li>
-    {{else}}
-      <li class="not-here">
-        {{chef.name}}
-        <button {{action 'makePresent' chef}}>Enter</button>
-        <button {{action 'fire' chef}}>Fire</button>
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+{{link-to 'Chefs' 'chefs'}}
+{{link-to 'About' 'about'}}
+{{link-to 'Chef Training' 'training'}}
 <hr>
-{{input value=newItem}}
-<button {{action 'saveNewItem'}}>Save</button>
+{{outlet}}
