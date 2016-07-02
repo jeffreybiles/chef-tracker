@@ -17,9 +17,6 @@ export default Ember.Controller.extend({
         name: this.get('newItem')
       }).save()
       this.set('newItem', '')
-    },
-    fire(chef){
-      chef.destroyRecord()
     }
   }
 });
