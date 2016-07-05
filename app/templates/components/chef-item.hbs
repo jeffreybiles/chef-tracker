@@ -1,0 +1,13 @@
+<li class="{{if chef.isHere '' 'not-here'}}">
+  {{chef.name}}
+  <button {{action 'toggleOpen'}}>{{if isOpen 'v' '>'}}</button>
+  {{#if isOpen}}
+    <br>
+    {{#if chef.isHere}}
+      <button {{action 'makeAbsent' chef}}>Exit</button>
+    {{else}}
+      <button {{action 'makePresent' chef}}>Enter</button>
+    {{/if}}
+    {{#link-to 'chefs.chef' chef}}Go to Show Page{{/link-to}}
+  {{/if}}
+</li>

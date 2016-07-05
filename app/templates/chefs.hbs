@@ -4,14 +4,8 @@
     <p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
     <ul>
       {{#each model as |chef|}}
-        <li class="{{if chef.isHere '' 'not-here'}}">
-          {{#link-to 'chefs.chef' chef}}{{chef.name}}{{/link-to}}
-          {{#if chef.isHere}}
-            <button {{action 'makeAbsent' chef}}>Exit</button>
-          {{else}}
-            <button {{action 'makePresent' chef}}>Enter</button>
-          {{/if}}
-        </li>
+        {{chef-item chef=chef}}
+
       {{/each}}
     </ul>
     <hr>
