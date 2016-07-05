@@ -2,7 +2,9 @@
   {{chef.name}}
   <button {{action 'toggleOpen'}}>{{if isOpen 'v' '>'}}</button>
   {{#if isOpen}}
-    <br>
+    <div class="description">{{chef.description}}</div>
+    {{#link-to 'chefs.chef' chef}}<button>Show</button>{{/link-to}}
+    {{#link-to 'chefs.chef.edit' chef}}<button>Edit</button>{{/link-to}}
     <button {{action 'togglePresent' chef}}>{{if chef.isHere 'Exit' 'Enter'}}</button>
   {{/if}}
 </li>
