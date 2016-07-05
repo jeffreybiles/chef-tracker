@@ -3,12 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isOpen: false,
   actions: {
-    makePresent(chef){
-      Ember.set(chef, 'isHere', true);
-      chef.save();
-    },
-    makeAbsent(chef){
-      Ember.set(chef, 'isHere', false);
+    togglePresent(chef){
+      chef.set('isHere', !chef.get('isHere'));
       chef.save();
     },
     toggleOpen(){
