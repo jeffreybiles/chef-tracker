@@ -21,3 +21,15 @@ li.not-here a {
   height: 50px;
   width: 300px;
 }
+
+.img-small {
+  max-width: 128px;
+}
+
+.img-icon {
+  max-width: 64px;
+}
+
+.chef-description {
+  max-width: 300px;
+}

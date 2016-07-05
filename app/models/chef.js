@@ -5,5 +5,6 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   name: attr('string'),
   isHere: attr('boolean'),
-  description: attr('string')
+  description: attr('string'),
+  imageUrl: attr('string')
 });
