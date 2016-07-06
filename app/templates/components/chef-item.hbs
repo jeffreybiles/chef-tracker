@@ -1,10 +1,14 @@
-<li class="{{if chef.isHere '' 'not-here'}}">
-  {{chef.name}}
-  <button {{action 'toggleOpen'}}>{{if isOpen 'v' '>'}}</button>
+<div class="chef-item {{if chef.isHere '' 'not-here'}}">
+  <div {{action 'toggleOpen'}} class="title-bar">
+    {{chef.name}} <span style="float: right;">{{if isOpen 'V' '>'}}</span>
+  </div>
   {{#if isOpen}}
-    <div class="chef-description"><img class="img-icon" src={{chef.imageUrl}} />{{chef.description}}</div>
+    <div class="chef-info">
+      <img class="img-icon" style="float: left;" src={{chef.imageUrl}} />
+      <div class="chef-description">{{chef.description}}</div>
+    </div>
     {{#link-to 'chefs.chef' chef}}<button>Show</button>{{/link-to}}
     {{#link-to 'chefs.chef.edit' chef}}<button>Edit</button>{{/link-to}}
     <button {{action 'togglePresent' chef}}>{{if chef.isHere 'Exit' 'Enter'}}</button>
   {{/if}}
-</li>
+</div>

@@ -1,10 +1,10 @@
 .is-here {
   text-decoration: underline;
 }
-li.not-here {
+.not-here {
   color: grey;
 }
-li.not-here a {
+.not-here a {
   color: grey;
 }
 
@@ -28,8 +28,23 @@ li.not-here a {
 
 .img-icon {
   max-width: 64px;
+  padding: 5px;
 }
 
+/* chef-item */
+
 .chef-description {
-  max-width: 300px;
+  min-height: 80px;
+}
+
+.chef-item {
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.chef-item .title-bar {
+  font-size: 1.2em;
 }

@@ -2,11 +2,9 @@
   <div class="flex-item">
     <h1>Chef Tracker</h1>
     <p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
-    <ul>
-      {{#each model as |chef|}}
-        {{chef-item chef=chef}}
-      {{/each}}
-    </ul>
+    {{#each model as |chef|}}
+      {{chef-item chef=chef}}
+    {{/each}}
     <hr>
     {{input value=newItem}}
     <button {{action 'saveNewItem'}}>Save</button>
