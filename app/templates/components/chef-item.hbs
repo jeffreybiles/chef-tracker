@@ -4,7 +4,7 @@
   </div>
   {{#if isOpen}}
     <div class="chef-info">
-      <img class="img-icon" style="float: left;" src={{chef.imageUrl}} />
+      {{icon-image chef.imageUrl left=true}}
       <div class="chef-description">{{chef.description}}</div>
     </div>
     {{#link-to 'chefs.chef' chef}}<button>Show</button>{{/link-to}}
