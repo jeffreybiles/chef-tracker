@@ -3,7 +3,22 @@
     <h1>Chef Tracker</h1>
     <p>{{chefsHere.length}} of our {{model.length}} chefs are cooking right now!</p>
     {{#each model as |chef|}}
-      {{chef-item chef=chef}}
+      {{#collapsible-component as |isOpen component|}}
+        <div class="chef-item {{if chef.isHere '' 'not-here'}}">
+          <div {{action 'toggleOpen' target=component}} class="title-bar">
+            {{chef.name}} <span style="float: right;">{{if isOpen 'V' '>'}}</span>
+          </div>
+          {{#if isOpen}}
+            <div class="chef-info">
+              {{icon-image chef.imageUrl left=true}}
+              <div class="chef-description">{{chef.description}}</div>
+            </div>
+            {{#link-to 'chefs.chef' chef}}<button>Show</button>{{/link-to}}
+            {{#link-to 'chefs.chef.edit' chef}}<button>Edit</button>{{/link-to}}
+            <button {{action 'togglePresent' chef}}>{{if chef.isHere 'Exit' 'Enter'}}</button>
+          {{/if}}
+        </div>
+      {{/collapsible-component}}
     {{/each}}
     <hr>
     {{input value=newItem}}
