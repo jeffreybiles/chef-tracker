@@ -1,0 +1,8 @@
+<h1>{{model.name}}</h1>
+
+<p>This fine establishment is staffed by the following fine chefs:</p>
+<ul>
+{{#each model.chefs as |chef|}}
+  <li>{{link-to chef.name 'chefs.chef' chef}}</li>
+{{/each}}
+</ul>

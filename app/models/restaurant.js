@@ -4,8 +4,5 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr('string'),
-  isHere: attr('boolean'),
-  description: attr('string'),
-  imageUrl: attr('string'),
-  restaurant: belongsTo()
+  chefs: hasMany()
 });
