@@ -1,6 +1,10 @@
-<p>Name: {{input value=model.name}}</p>
-<p>Description: {{textarea value=model.description class="medium-text-area"}}</p>
-<p>ImageUrl: {{input value=model.imageUrl}}</p>
-{{icon-image model.imageUrl}}<br>
-
+<p>Name: {{input value=model.chef.name}}</p>
+<p>Description: {{textarea value=model.chef.description class="medium-text-area"}}</p>
+<p>ImageUrl: {{input value=model.chef.imageUrl}}</p>
+{{icon-image model.chef.imageUrl}}<br>
+{{#power-select options=model.restaurants
+                selected=model.chef.restaurant
+                onchange=(action 'selectRestaurant') as |restaurant|}}
+  {{restaurant.name}}
+{{/power-select}}
 <button {{action 'save'}}>Save</button>
