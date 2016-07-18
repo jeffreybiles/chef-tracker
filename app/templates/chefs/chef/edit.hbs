@@ -2,9 +2,10 @@
 <p>Description: {{textarea value=model.chef.description class="medium-text-area"}}</p>
 <p>ImageUrl: {{input value=model.chef.imageUrl}}</p>
 {{icon-image model.chef.imageUrl}}<br>
-{{#power-select options=model.restaurants
-                selected=model.chef.restaurant
-                onchange=(action 'selectRestaurant') as |restaurant|}}
-  {{restaurant.name}}
-{{/power-select}}
+{{#x-select value=model.chef.restaurant.content action="selectRestaurant"}}
+  {{#each model.restaurants as |restaurant|}}
+    {{#x-option value=restaurant}}{{restaurant.name}}{{/x-option}}
+  {{/each}}
+{{/x-select}}
+<hr>
 <button {{action 'save'}}>Save</button>
