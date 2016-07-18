@@ -8,9 +8,9 @@ export default Ember.Controller.extend({
     },
     selectRestaurant(selection, component){
       let chef = this.get('model.chef');
-      chef.set('restaurant', selection).save().then(()=>{
-        selection.save()
-      });
+      chef.get('restaurant.content').save();
+      chef.set('restaurant', selection).save();
+      selection.save();
     }
   }
 });
