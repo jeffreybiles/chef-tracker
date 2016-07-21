@@ -7,5 +7,5 @@ export default Model.extend({
   isHere: attr('boolean'),
   description: attr('string'),
   imageUrl: attr('string'),
-  restaurant: belongsTo()
+  restaurants: hasMany()
 });

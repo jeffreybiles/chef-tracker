@@ -2,10 +2,17 @@
 <p>Description: {{textarea value=model.chef.description class="medium-text-area"}}</p>
 <p>ImageUrl: {{input value=model.chef.imageUrl}}</p>
 {{icon-image model.chef.imageUrl}}<br>
-{{#x-select value=model.chef.restaurant.content action="selectRestaurant"}}
-  {{#each model.restaurants as |restaurant|}}
-    {{#x-option value=restaurant}}{{restaurant.name}}{{/x-option}}
-  {{/each}}
-{{/x-select}}
+Currently Working at:
+<ul>
+{{#each model.chef.restaurants as |restaurant|}}
+  <li>{{restaurant.name}} <button {{action 'leaveRestaurant' restaurant}}>Leave</button></li>
+{{/each}}
+</ul>
+Other Restaurants:
+<ul>
+{{#each otherRestaurants as |restaurant|}}
+  <li>{{restaurant.name}} <button {{action 'joinRestaurant' restaurant}}>Join</button></li>
+{{/each}}
+</ul>
 <hr>
 <button {{action 'save'}}>Save</button>

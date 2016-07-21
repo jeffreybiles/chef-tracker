@@ -1,6 +1,11 @@
 <h1>{{model.name}}</h1>
 <p>{{model.description}}</p>
-<p>Currently working at {{model.restaurant.name}}</p>
+<p>Currently working at:</p>
+<ul>
+  {{#each model.restaurants as |restaurant|}}
+    <li>{{restaurant.name}}</li>
+  {{/each}}
+</ul>
 {{icon-image model.imageUrl}}<br>
 {{link-to 'Edit this chef' 'chefs.chef.edit' model.id}}
 <button {{action 'fire' model}}>Fire</button>
