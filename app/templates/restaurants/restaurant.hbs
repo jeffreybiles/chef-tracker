@@ -8,7 +8,7 @@
 </ul>
 {{#if model.chefs}}
   <p>Max health of food: {{model.maxHealth}}</p>
-  <p>Average health of food: {{model.averageHealth}}</p>
+  <p>Average health of food: {{round model.averageHealth 1}}</p>
   <p>Max fame of chef: {{model.maxFame}}</p>
   <p>Average fame of chefs: {{model.averageFame}}</p>
 {{else}}
