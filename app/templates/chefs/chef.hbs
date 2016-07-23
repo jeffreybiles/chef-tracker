@@ -1,6 +1,8 @@
 <h1>{{model.name}}</h1>
 <p>{{model.description}}</p>
 <p>Currently working at {{model.restaurant.name}}</p>
+<p>Health: {{model.health}}</p>
+<p>Fame: {{model.fame}}</p>
 {{icon-image model.imageUrl}}<br>
 {{link-to 'Edit this chef' 'chefs.chef.edit' model.id}}
 <button {{action 'fire' model}}>Fire</button>

@@ -6,5 +6,13 @@
   <li>{{link-to chef.name 'chefs.chef' chef}}</li>
 {{/each}}
 </ul>
+{{#if model.chefs}}
+  <p>Max health of food: {{model.maxHealth}}</p>
+  <p>Average health of food: {{model.averageHealth}}</p>
+  <p>Max fame of chef: {{model.maxFame}}</p>
+  <p>Average fame of chefs: {{model.averageFame}}</p>
+{{else}}
+  <p>Add chefs to this restaurant to see more stats.</p>
+{{/if}}
 <hr>
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}
