@@ -9,10 +9,10 @@
 {{#if model.chefs}}
   <p>Max health of food: {{model.maxHealth}}</p>
   <p>Average health of food: {{round model.averageHealth 1}}</p>
-  <p>{{rating-bar-component model.averageHealth 200}}</p>
+  <p>{{rating-bar model.averageHealth 200}}</p>
   <p>Max fame of chef: {{model.maxFame}}</p>
   <p>Average fame of chefs: {{model.averageFame}}</p>
-  <p>{{rating-bar-component model.averageFame}}</p>
+  <p>{{rating-bar model.averageFame}}</p>
 {{else}}
   <p>Add chefs to this restaurant to see more stats.</p>
 {{/if}}
