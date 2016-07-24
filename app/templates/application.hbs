@@ -2,5 +2,13 @@
 {{link-to 'About' 'about'}}
 {{link-to 'Chef Training' 'training'}}
 {{link-to 'Restaurants' 'restaurants'}}
+
+<span class='pull-right'>
+  {{#if session.isAuthenticated}}
+    <span {{action 'logout'}}>Logout {{session.currentUser.displayName}}</span>
+  {{else}}
+    {{link-to 'Login' 'login'}}
+  {{/if}}
+</span>
 <hr>
 {{outlet}}
