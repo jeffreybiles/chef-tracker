@@ -52,6 +52,9 @@
 .pull-left {
   float: left;
 }
+.pull-right {
+  float: right;
+}
 
 .contact-partial {
   border-radius: 5px;

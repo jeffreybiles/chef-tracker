@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('restaurant', {path: ':restaurant_id'});
     this.route('restaurant.edit', {path: ':restaurant_id/edit'});
   });
+  this.route('login');
 });
 
 export default Router;
