@@ -1,11 +1,6 @@
 <h1>Login</h1>
-<p><em>This will be slowly replaced by a real login screen.</em></p>
 
-<ul>
-{{#each model as |user|}}
-  <li>
-    <button {{action 'login' user}}>Log In</button>
-    {{user.email}}/{{user.displayName}}
-  </li>
-{{/each}}
-</ul>
+<p>Email: {{input value=email}}</p>
+<p>Password:  {{input value=password type="password"}}</p>
+
+<button {{action 'login'}}>Login</button>

@@ -6,9 +6,14 @@ export default Ember.Service.extend({
 
   currentUser: null,
   isAuthenticated: Ember.computed.notEmpty('currentUser'),
-  login(user){
-    this.set('currentUser', user);
-    this.get('cookies').write('currentUserId', user.get('id'));
+  login(email, password){
+    return this.get('store').query('user', {orderBy: 'email', equalTo: email}).then((users)=>{
+      let user = users.objectAt(0);
+      if(user && user.get('password') == password){
+        this.set('currentUser', user);
+        this.get('cookies').write('currentUserId', user.get('id'));
+      }
+    })
   },
   logout(){
     this.set('currentUser', null);
