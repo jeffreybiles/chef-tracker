@@ -9,6 +9,11 @@ export default Ember.Controller.extend({
       let displayName = this.get('displayName');
       this.get('session').register(email, password, displayName).then(()=>{
         this.transitionToRoute('chefs');
+      }).catch((errors)=>{
+        errors.forEach((error)=>{
+          let message = `Error on ${error.attribute}: ${error.message}`
+          this.get('flashMessages').danger(message, {sticky: true});
+        })
       });
     }
   }
