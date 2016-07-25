@@ -74,3 +74,16 @@
   background-color: blue;
   display: block;
 }
+
+.field {
+  padding-bottom: 8px;
+}
+
+.field input {
+  width: 200px;
+}
+
+.field label {
+  color: #000;
+  display: block;
+}
