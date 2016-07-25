@@ -28,5 +28,16 @@ export default Ember.Service.extend({
       let currentUser = this.get('store').findRecord('user', currentUserId);
       this.set('currentUser', currentUser);
     }
+  },
+  register(email, password, displayName){
+    return this.get('store')
+        .createRecord('user',
+            {email: email,
+            password: password,
+            displayName: displayName})
+        .save()
+        .then((user)=>{
+          this.login(email, password);
+        })
   }
 });
