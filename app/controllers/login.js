@@ -8,6 +8,8 @@ export default Ember.Controller.extend({
       let password = this.get('password');
       this.get('session').login(email, password).then(()=>{
         this.transitionToRoute('application');
+      }).catch(()=>{
+        alert("The email and password given do not match");
       });
     }
   }
