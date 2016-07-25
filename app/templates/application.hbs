@@ -8,6 +8,7 @@
     <span {{action 'logout'}}>Logout {{session.currentUser.displayName}}</span>
   {{else}}
     {{link-to 'Login' 'login'}}
+    {{link-to 'Register' 'register'}}
   {{/if}}
 </span>
 <hr>
