@@ -13,7 +13,7 @@ export default Ember.Service.extend({
         this.set('currentUser', user);
         this.get('cookies').write('currentUserId', user.get('id'));
       } else {
-        return Ember.RSVP.reject();
+        return Ember.RSVP.reject("The email and password given do not match");
       }
     })
   },

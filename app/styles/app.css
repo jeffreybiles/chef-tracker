@@ -87,3 +87,11 @@
   color: #000;
   display: block;
 }
+
+.alert-danger {
+  color: red;
+}
+
+.alert-success {
+  color: green;
+}
