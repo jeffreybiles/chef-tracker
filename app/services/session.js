@@ -37,7 +37,9 @@ export default Ember.Service.extend({
             displayName: displayName})
         .validate().then(({model, validations})=>{
           if(validations.get('isValid')){
-            return model.save()
+            return model.save().catch(()=>{
+              return Ember.RSVP.reject("That email is already taken.  Choose another?")
+            })
           } else {
             return Ember.RSVP.reject(validations.get('errors'))
           }

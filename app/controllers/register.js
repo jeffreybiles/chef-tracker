@@ -10,10 +10,14 @@ export default Ember.Controller.extend({
       this.get('session').register(email, password, displayName).then(()=>{
         this.transitionToRoute('chefs');
       }).catch((errors)=>{
-        errors.forEach((error)=>{
-          let message = `Error on ${error.attribute}: ${error.message}`
-          this.get('flashMessages').danger(message, {sticky: true});
-        })
+        if(Ember.isArray(errors)){
+          errors.forEach((error)=>{
+            let message = `Error on ${error.attribute}: ${error.message}`
+            this.get('flashMessages').danger(message, {sticky: true});
+          })
+        } else {
+          this.get('flashMessages').danger(errors, {sticky: true});
+        }
       });
     }
   }
