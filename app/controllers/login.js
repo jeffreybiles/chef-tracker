@@ -7,9 +7,10 @@ export default Ember.Controller.extend({
       let email = this.get('email');
       let password = this.get('password');
       this.get('session').login(email, password).then(()=>{
+        this.get('flashMessages').success('You have logged in successfully');
         this.transitionToRoute('application');
-      }).catch(()=>{
-        alert("The email and password given do not match");
+      }).catch((reason)=>{
+        this.get('flashMessages').danger(reason)
       });
     }
   }
