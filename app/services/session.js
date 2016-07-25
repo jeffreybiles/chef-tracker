@@ -35,9 +35,15 @@ export default Ember.Service.extend({
             {email: email,
             password: password,
             displayName: displayName})
-        .save()
+        .validate().then(({model, validations})=>{
+          if(validations.get('isValid')){
+            return model.save()
+          } else {
+            return Ember.RSVP.reject(validations.get('errors'))
+          }
+        })
         .then((user)=>{
-          this.login(email, password);
+          return this.login(email, password);
         })
   }
 });
