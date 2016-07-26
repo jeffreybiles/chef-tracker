@@ -1,0 +1,10 @@
+<h1>Dashboard for {{currentUser.displayName}}</h1>
+<p>Email: {{currentUser.email}}</p>
+<p>Restaurants:</p>
+<ul>
+  {{#each currentUser.restaurants as |restaurant|}}
+    {{#link-to 'restaurants.restaurant' restaurant}}
+      <li>{{restaurant.name}}</li>
+    {{/link-to}}
+  {{/each}}
+</ul>

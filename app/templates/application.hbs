@@ -5,7 +5,8 @@
 
 <span class='pull-right'>
   {{#if session.isAuthenticated}}
-    <span {{action 'logout'}}>Logout {{session.currentUser.displayName}}</span>
+  {{#link-to 'me'}}{{session.currentUser.displayName}}{{/link-to}}
+  <a href="#" {{action 'logout'}}>Logout</a>
   {{else}}
     {{link-to 'Login' 'login'}}
     {{link-to 'Register' 'register'}}

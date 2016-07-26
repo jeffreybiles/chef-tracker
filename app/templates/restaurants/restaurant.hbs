@@ -23,5 +23,8 @@
 {{else}}
   <p>Add chefs to this restaurant to see more stats.</p>
 {{/if}}
+{{#if model.user}}
+  <p>This restaurant is owned by {{model.user.displayName}}.</p>
+{{/if}}
 <hr>
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}

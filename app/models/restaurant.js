@@ -5,6 +5,7 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 export default Model.extend({
   name: attr('string'),
   chefs: hasMany(),
+  user: belongsTo(),
   healthRatings: Ember.computed.mapBy('chefs', 'health'),
   maxHealth: Ember.computed.max('healthRatings'),
   fameRatings: Ember.computed.mapBy('chefs', 'fame'),
