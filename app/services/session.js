@@ -3,19 +3,18 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   cookies: Ember.inject.service(),
   store: Ember.inject.service(),
+  firebaseApp: Ember.inject.service(),
 
   currentUser: null,
   isAuthenticated: Ember.computed.notEmpty('currentUser'),
   login(email, password){
-    return this.get('store').query('user', {orderBy: 'email', equalTo: email}).then((users)=>{
-      let user = users.objectAt(0);
-      if(user && user.get('password') == password){
+    let auth = this.get('firebaseApp').auth();
+    return auth.signInWithEmailAndPassword(email, password).then((firebaseUser)=>{
+      return this.get('store').findRecord('user', firebaseUser.uid).then((user)=>{
         this.set('currentUser', user);
         this.get('cookies').write('currentUserId', user.get('id'));
-      } else {
-        return Ember.RSVP.reject("The email and password given do not match");
-      }
-    })
+      });
+    });
   },
   logout(){
     this.set('currentUser', null);
@@ -30,14 +29,18 @@ export default Ember.Service.extend({
     }
   },
   register(email, password, displayName){
+    let auth = this.get('firebaseApp').auth();
+
     return this.get('store')
         .createRecord('user',
             {email: email,
-            password: password,
-            displayName: displayName})
+             displayName: displayName})
         .validate().then(({model, validations})=>{
           if(validations.get('isValid')){
-            return model.save()
+            return auth.createUserWithEmailAndPassword(email, password).then((userResponse)=>{
+              model.set('id', userResponse.uid);
+              return model.save();
+            })
           } else {
             return Ember.RSVP.reject(validations.get('errors'))
           }
