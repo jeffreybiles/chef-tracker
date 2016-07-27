@@ -24,7 +24,13 @@
   <p>Add chefs to this restaurant to see more stats.</p>
 {{/if}}
 {{#if model.user}}
-  <p>This restaurant is owned by {{model.user.displayName}}.</p>
+  <p>This restaurant is owned by {{model.user.displayName}}.
+    {{#if (eq model.user.id session.currentUser.id)}}
+      That's you.  <button {{action 'sellRestaurant' model}}>Sell it.</button>
+    {{/if}}
+  </p>
+{{else}}
+  <p>This restaurant is unclaimed; <button {{action 'buyRestaurant' model}}>Buy it</button>.</p>
 {{/if}}
 <hr>
 {{#link-to 'restaurants.restaurant.edit' model.id}}<button>Edit</button>{{/link-to}}
