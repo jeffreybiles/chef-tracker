@@ -11,8 +11,8 @@
   <p>Average health of food: {{round model.averageHealth 1}}</p>
   <p>{{rating-bar model.averageHealth 200}}</p>
   <p>Max fame of chef: {{model.maxFame}}</p>
-  <p>Average fame of chefs: {{model.averageFame}}</p>
-  <p>{{rating-bar model.averageFame}}</p>
+  <p>Average fame of chefs: {{round model.averageFame 2}}</p>
+  <p>{{rating-bar model.averageFame color='red'}}</p>
 {{else}}
   <p>Add chefs to this restaurant to see more stats.</p>
 {{/if}}
