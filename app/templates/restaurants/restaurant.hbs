@@ -9,7 +9,9 @@
 {{#if model.chefs}}
   {{#if (eq model.chefs.length 1)}}
     <p>Health of food: {{model.maxHealth}}</p>
+    <p>{{rating-bar model.averageHealth 200}}</p>
     <p>Fame of chef: {{model.maxFame}}</p>
+    <p>{{rating-bar model.averageFame}}</p>
   {{else}}
     <p>Max health of food: {{model.maxHealth}}</p>
     <p>Average health of food: {{round model.averageHealth 1}}</p>
