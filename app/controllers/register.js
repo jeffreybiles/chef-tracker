@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
       let email = this.get('email');
       let password = this.get('password');
       let displayName = this.get('displayName');
+      this.get('flashMessages').clearMessages();
       this.get('session').register(email, password, displayName).then(()=>{
         this.transitionToRoute('chefs');
       }).catch((errors)=>{
