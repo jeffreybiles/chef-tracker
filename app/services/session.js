@@ -24,8 +24,9 @@ export default Ember.Service.extend({
     this._super(...arguments);
     let currentUserId = this.get('cookies').read('currentUserId');
     if(currentUserId){
-      let currentUser = this.get('store').findRecord('user', currentUserId);
-      this.set('currentUser', currentUser);
+      this.get('store').findRecord('user', currentUserId).then((user)=>{
+        this.set('currentUser', user)
+      })
     }
   },
   register(email, password, displayName){
