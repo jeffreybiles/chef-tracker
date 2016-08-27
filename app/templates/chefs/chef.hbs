@@ -4,5 +4,7 @@
 <p>Health: {{model.health}}</p>
 <p>Fame: {{model.fame}}</p>
 {{icon-image model.imageUrl}}<br>
-{{link-to 'Edit this chef' 'chefs.chef.edit' model.id}}
-<button {{action 'fire' model}}>Fire</button>
+{{#if (can-edit-chef model)}}
+  {{link-to 'Edit this chef' 'chefs.chef.edit' model.id}}
+  <button {{action 'fire' model}}>Fire</button>
+{{/if}}

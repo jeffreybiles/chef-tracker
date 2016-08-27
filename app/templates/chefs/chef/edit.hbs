@@ -1,13 +1,17 @@
-<p>Name: {{input value=model.chef.name}}</p>
-<p>Description: {{textarea value=model.chef.description class="medium-text-area"}}</p>
-<p>ImageUrl: {{input value=model.chef.imageUrl}}</p>
-<p>Health of food (from 0 to 10): {{input value=model.chef.health}}</p>
-<p>Fame of chef (from 0 to 10): {{input value=model.chef.fame}}</p>
-{{icon-image model.chef.imageUrl}}<br>
-{{#x-select value=model.chef.restaurant.content action="selectRestaurant"}}
-  {{#each model.restaurants as |restaurant|}}
-    {{#x-option value=restaurant}}{{restaurant.name}}{{/x-option}}
-  {{/each}}
-{{/x-select}}
-<hr>
-<button {{action 'save'}}>Save</button>
+{{#if (can-edit-chef model.chef)}}
+  <p>Name: {{input value=model.chef.name}}</p>
+  <p>Description: {{textarea value=model.chef.description class="medium-text-area"}}</p>
+  <p>ImageUrl: {{input value=model.chef.imageUrl}}</p>
+  <p>Health of food (from 0 to 10): {{input value=model.chef.health}}</p>
+  <p>Fame of chef (from 0 to 10): {{input value=model.chef.fame}}</p>
+  {{icon-image model.chef.imageUrl}}<br>
+  {{#x-select value=model.chef.restaurant.content action="selectRestaurant"}}
+    {{#each model.restaurants as |restaurant|}}
+      {{#x-option value=restaurant}}{{restaurant.name}}{{/x-option}}
+    {{/each}}
+  {{/x-select}}
+  <hr>
+  <button {{action 'save'}}>Save</button>
+{{else}}
+  <p>To edit this chef, you must own the restaurant where they work.</p>
+{{/if}}
