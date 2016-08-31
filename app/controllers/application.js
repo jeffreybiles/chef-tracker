@@ -20,6 +20,15 @@ export default Ember.Controller.extend({
     },
     fire(chef){
       chef.destroyRecord()
+    },
+    incrementStudents(chef){
+      chef.set('numberStudents', chef.get('numberStudents') + 1);
+      chef.save();
+    },
+    decrementStudents(chef){
+      // convenience method
+      chef.decrementProperty('numberStudents');
+      chef.save();
     }
   }
 });
