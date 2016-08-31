@@ -26,9 +26,11 @@ export default Ember.Controller.extend({
       chef.save();
     },
     decrementStudents(chef){
-      // convenience method
-      chef.decrementProperty('numberStudents');
-      chef.save();
+      if(chef.get('numberStudents') > 0){
+        // convenience method
+        chef.decrementProperty('numberStudents');
+        chef.save();
+      }
     }
   }
 });
