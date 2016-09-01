@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   chefsHere: Ember.computed.filterBy('model', 'isHere'),
+  chefStudents: Ember.computed.mapBy('model', 'numberStudents'),
+  totalStudents: Ember.computed.sum('chefStudents'),
   actions: {
     makePresent(chef){
       Ember.set(chef, 'isHere', true)
