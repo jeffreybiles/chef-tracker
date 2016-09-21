@@ -8,16 +8,22 @@ export default Ember.Controller.extend({
     return this.get("newPassword") == this.get('confirmNewPassword')
   }),
   actions: {
-    updatePassword(){
+    updatePassword(oldPassword=''){
       if(this.get('passwordsMatch')){
-        let firebaseUser = this.get('firebaseApp').auth().currentUser;
-        firebaseUser.updatePassword(this.get('newPassword')).then(()=>{
-          this.transitionToRoute('me')
+        let email = this.get('session.currentUser.email')
+        this.get('session').login(email, oldPassword).then(()=>{
+          let firebaseUser = this.get('firebaseApp').auth().currentUser;
+          return firebaseUser.updatePassword(this.get('newPassword')).then(()=>{
+            this.get('flashMessages').success('You successfully updated your password')
+            this.setProperties({
+              oldPassword: '',
+              newPassword: '',
+              confirmNewPassword: ''
+            })
+            this.transitionToRoute('me')
+          })
         }).catch((e)=>{
           alert(e.message)
-          if(e.code == 'auth/requires-recent-login'){
-            this.transitionToRoute('login')
-          }
         })
       } else {
         this.set('triedOnce', true)

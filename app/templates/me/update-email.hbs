@@ -1,5 +1,10 @@
 <h3>Update Email</h3>
 <div class="field">
+  <label>New Email</label>
   {{input value=newEmail placeholder=user.email}}
 </div>
-<button {{action 'updateEmail' newEmail}}>Update Email</button>
+<div class="field">
+  <label>Password (For security reasons)</label>
+  {{input type="password" value=password placeholder="password"}}
+</div>
+<button {{action 'updateEmail' newEmail password}}>Update Email</button>
