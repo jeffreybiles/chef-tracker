@@ -18,7 +18,10 @@ Router.map(function() {
   });
   this.route('login');
   this.route('register');
-  this.route('me');
+  this.route('me', function(){
+    this.route('update-password')
+    this.route('update-email')
+  });
 });
 
 export default Router;
