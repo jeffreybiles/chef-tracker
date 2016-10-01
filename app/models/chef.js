@@ -5,5 +5,5 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   name: attr('string'),
   isHere: attr('boolean'),
-  numberStudents: attr('number')
+  numberStudents: attr('number', {defaultValue: 0})
 });
